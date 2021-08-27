@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FaPlus } from 'react-icons/fa'
 import { v4 as uuidv4 } from 'uuid';
 
-function TodoAdd({ todos, setTodos }) {
+function TodoAdd({ addTodo }) {
     const [todoText, setTodoText] = useState('');
 
     const handleSubmit = e => {
@@ -14,7 +14,7 @@ function TodoAdd({ todos, setTodos }) {
             completed: false
         }
 
-        setTodos([...todos, todo]);
+        addTodo(todo);
 
         setTodoText('');
     }

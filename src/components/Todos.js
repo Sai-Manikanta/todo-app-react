@@ -1,20 +1,6 @@
 import Todo from './Todo'
 
-function Todos({ todos, setTodos }) {
-
-    const deleteTodo = id => {
-        const filteredTodos = todos.filter(todo => todo._id !== id);
-        setTodos(filteredTodos);
-    }
-
-    const updateTodo = id => {
-        const updatedTodos = todos.map(todo => {
-            return todo._id === id ? { ...todo, completed: !todo.completed } : todo
-        });
-
-        setTodos(updatedTodos);
-    }
-
+function Todos({ todos, deleteTodo, updateTodo }) {
     return (
         <div className="mt-4">
             {todos.length > 0 ? (

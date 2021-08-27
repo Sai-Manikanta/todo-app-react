@@ -22,12 +22,33 @@ function App() {
         },
     ]);
 
+    const addTodo = todo => {
+        setTodos([ ...todos, todo ])
+    }
+
+    const deleteTodo = id => {
+        const filteredTodos = todos.filter(todo => todo._id !== id);
+        setTodos(filteredTodos);
+    }
+
+    const updateTodo = id => {
+        const updatedTodos = todos.map(todo => {
+            return todo._id === id ? { ...todo, completed: !todo.completed } : todo
+        });
+
+        setTodos(updatedTodos);
+    }
+
     return (
        <div className="bg-gradient-to-r from-green-400 to-blue-500 h-screen p-1">
            <div className="bg-white max-w-sm mx-auto mt-4 rounded p-4">
-               <TodoAdd todos={todos} setTodos={setTodos} />
-               <Todos todos={todos} setTodos={setTodos} />
-               <TodoInfo todoCount={todos.length} setTodos={setTodos} />
+               <TodoAdd todos={todos} setTodos={setTodos} addTodo={addTodo} />
+               <Todos 
+                    todos={todos}  
+                    deleteTodo={deleteTodo}
+                    updateTodo={updateTodo}
+                />
+               <TodoInfo todosCount={todos.length} setTodos={setTodos} />
            </div>
        </div>
     )
