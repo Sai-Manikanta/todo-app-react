@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaPlus } from 'react-icons/fa'
-import { v4 as uuidv4 } from 'uuid';
+//import { v4 as uuidv4 } from 'uuid';
 
 function TodoAdd({ addTodo }) {
     const [todoText, setTodoText] = useState('');
@@ -8,13 +8,13 @@ function TodoAdd({ addTodo }) {
     const handleSubmit = e => {
         e.preventDefault();
         
-        const todo = {
-            _id: uuidv4(),
-            todo: todoText,
-            completed: false
-        }
+        // const todo = {
+        //     _id: uuidv4(),
+        //     todo: todoText,
+        //     completed: false
+        // }
 
-        addTodo(todo);
+        addTodo(todoText);
 
         setTodoText('');
     }

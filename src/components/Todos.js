@@ -1,6 +1,11 @@
 import Todo from './Todo'
 
-function Todos({ todos, deleteTodo, updateTodo }) {
+function Todos({ todos, deleteTodo, updateTodo, error }) {
+
+    if(error){
+        return <p>Something went wrong!</p>
+    }
+
     return (
         <div className="mt-4">
             {todos.length > 0 ? (
