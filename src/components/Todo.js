@@ -1,6 +1,9 @@
+import React, { useContext } from 'react';
 import { AiOutlineDelete } from 'react-icons/ai'
+import { TodosContext } from '../contexts/TodosContextProvider';
 
-function Todo({ data, deleteTodo, updateTodo }) {
+function Todo({ data, updateTodo }) {
+    const { deleteTodo } = useContext(TodosContext);
     const { _id, todo, completed } = data;
     const linethrough = completed ? 'line-through' : '';
 

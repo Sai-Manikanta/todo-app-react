@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { FaPlus } from 'react-icons/fa'
 import { v4 as uuidv4 } from 'uuid';
+import { TodosContext } from './../contexts/TodosContextProvider'
 
-function TodoAdd({ addTodo }) {
+function TodoAdd() {
     const [todoText, setTodoText] = useState('');
+    const { addTodo } = useContext(TodosContext);
 
     const handleSubmit = e => {
         e.preventDefault();
